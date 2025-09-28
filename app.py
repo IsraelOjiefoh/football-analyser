@@ -8,7 +8,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 load_dotenv()
 
-# Initialize OpenAI client (make sure you set OPENAI_API_KEY in env)
+# Initialize OpenAI client
 client = OpenAI()
 
 st.title("Football Video Analyzer Sample")
