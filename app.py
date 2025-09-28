@@ -3,13 +3,21 @@ import cv2
 import os
 import base64
 from openai import OpenAI
-
-
 from dotenv import load_dotenv
+
+
 load_dotenv()
 
-# Initialize OpenAI client
-client = OpenAI()
+api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+
+if not api_key:
+    st.error(" OpenAI API key not found! Please set it in Streamlit secrets or a .env file.")
+    st.stop()
+
+
+
+# 3. Initialize OpenAI client
+client = OpenAI(api_key=api_key)
 
 st.title("Football Video Analyzer Sample")
 
